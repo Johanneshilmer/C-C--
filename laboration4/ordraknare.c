@@ -2,7 +2,7 @@
 #include <string.h>
 
 int main(void) {
-  char word_list[][50] = {""};
+  char word_list[][50] = {0};
   char word[50];
   char longest_word[50] = "";
   int sum = 0;
