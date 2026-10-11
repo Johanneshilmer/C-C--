@@ -1,6 +1,24 @@
 #include <stdio.h>
 #include <string.h>
 
+int count_starting_with(char names[][20], char letter, int count) {
+  for (int i = 0; i < 5; i++) {
+    if (names[i][0] == letter) {
+      count++;
+    }
+  }
+  return count;
+}
+
+int index_of_longest(char names[][20], int longest_name) {
+  for (int i = 1; i < 5; i++) {
+    if(strlen(names[i]) > strlen(names[longest_name])) {
+      longest_name = i;
+    }
+  }
+  return longest_name;
+}
+
 int main(void) {
   char names[5][20];
   int count = 0;
@@ -21,19 +39,12 @@ int main(void) {
   printf("\nEnter a letter: ");
   scanf(" %c", &letter);
 
-  for (int i = 0; i < 5; i++) {
-    if (names[i][0] == letter) {
-      count++;
-    }
-  }
+
+  count = count_starting_with(names, letter, count);
 
   printf("Amount of names starting with %c: %d\n", letter, count);
 
-  for (int i = 1; i < 5; i++) {
-    if(strlen(names[i]) > strlen(names[longest_name])) {
-      longest_name = i;
-    }
-  }
+  longest_name = index_of_longest(names, longest_name);
 
   printf("The longest name is: %s\n", names[longest_name]);
 
