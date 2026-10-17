@@ -8,7 +8,7 @@ int main(void) {
   scanf("%d", &count);
 
   int *readings = malloc(count * sizeof(*readings));
-  if (readings == NULL) {
+  if (readings == NULL) { // Kör ha alltid denna med, ifall nått misslyckas.
     printf("Minnesallokering misslyckades\n");
     return 1;
   }
