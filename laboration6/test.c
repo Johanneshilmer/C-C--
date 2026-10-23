@@ -11,9 +11,16 @@ int main(void) {
     printf("Mnnet kunde inte allokeras.\n");
     return 1;
   }
-  
-  sensorer[0] = 21;
-  printf("%d\n", sensorer[0]);
+
+  int *temp = realloc(sensorer, 5 * sizeof(int));
+
+  if (temp != NULL) {
+    sensorer = temp;
+  }
+
+  sensorer[4] = 21;
+
+  printf("%d\n", sensorer[4]);
   free(sensorer);
 
   return 0;
