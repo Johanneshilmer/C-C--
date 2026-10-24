@@ -1,27 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+int *create_squares(int n) {
+   int *arr = malloc(n * sizeof(*arr));
+
+   for(int i = 0; i < n; i++) {
+    arr[i] = i * i;
+   }
+   return arr;
+}
+
 int main(void) {
+  int n = 5;
+  int *squares = create_squares(n);
 
-  int antal = 4;
-
-  int *sensorer = malloc(antal * sizeof(int));
-
-  if(sensorer == NULL) {
-    printf("Mnnet kunde inte allokeras.\n");
+  if (squares == NULL) {
     return 1;
   }
 
-  int *temp = realloc(sensorer, 5 * sizeof(int));
-
-  if (temp != NULL) {
-    sensorer = temp;
+  for (int i = 0; i < n; i++) {
+    printf("%d\n", squares[i]);
   }
 
-  sensorer[4] = 21;
-
-  printf("%d\n", sensorer[4]);
-  free(sensorer);
-
+  free(squares);
   return 0;
 }
