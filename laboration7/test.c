@@ -1,15 +1,21 @@
 #include <stdio.h>
 
 typedef struct {
-  char name[50];
-  int age;
-} new_ppl;
+  int x;
+  int y;
+} Point;
 
 int main(void) {
 
-  new_ppl p1 = {"johannes", 30};
+  Point points[3];
 
-  printf("My name is %s and i am %d years old.", p1.name, p1.age);
+  points[0] = (Point){2,3};
+  points[1] = (Point){5,6};
+  points[2] = (Point){7,8};
+
+  for(int i = 0; i < 3; i++) {
+    printf("Punkt %d: x = %d, y = %d\n", i + 1, points[i].x, points[i].y);
+  }
 
   return 0;
 }
