@@ -15,11 +15,8 @@ class Hund : public Djur {
 };
 
 int main(void) {
-
   Hund hund;
-
   hund.ata();
   hund.skalla();
-
   return 0;
 }
